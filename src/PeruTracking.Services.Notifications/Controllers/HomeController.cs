@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PeruTracking.Services.Notifications.Builders;
 using PeruTracking.Services.Notifications.Services;
+using static PeruTracking.Services.Notifications.Constants;
 
 namespace PeruTracking.Services.Notifications.Controllers
 {
@@ -23,12 +24,14 @@ namespace PeruTracking.Services.Notifications.Controllers
         [HttpGet("Send")]
         public async Task<IActionResult> Send()
         {
+            //Bandeja de correo https://ethereal.email/messages
+
             var message = MessageBuilder
                 .Create()
                 .WithReceiver("Juan Perez", "jermaine.leuschke18@ethereal.email")
                 .WithSender(options.Name,options.Email)
                 .WithSubject("Registro de Usuario - Confirmar Cuenta")
-                .WithBody("CustomerCreated",
+                .WithBody(Template.CustomerCreated,
                           new { 
                               name = "Juan Perez", 
                               url = "https://blog.christian-schou.dk/send-emails-with-asp-net-core-with-mailkit/" 
