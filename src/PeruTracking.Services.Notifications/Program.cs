@@ -28,7 +28,7 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.UseRabbitMq()
-                .SubscribeEvent<CustomerCreated>(@namespace: "customers");
+    .SubscribeEvent<CustomerCreated>(@namespace: "customers");
 
 app.MapControllers();
 
