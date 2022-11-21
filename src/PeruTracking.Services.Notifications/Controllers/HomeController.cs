@@ -29,12 +29,13 @@ namespace PeruTracking.Services.Notifications.Controllers
             var message = MessageBuilder
                 .Create()
                 .WithReceiver("Juan Perez", "jermaine.leuschke18@ethereal.email")
-                .WithSender(options.Name,options.Email)
+                .WithSender(options.Name, options.Email)
                 .WithSubject("Registro de Usuario - Confirmar Cuenta")
                 .WithBody(Template.CustomerCreated,
-                          new { 
-                              name = "Juan Perez", 
-                              url = "https://blog.christian-schou.dk/send-emails-with-asp-net-core-with-mailkit/" 
+                          new
+                          {
+                              name = "Juan Perez",
+                              url = "https://blog.christian-schou.dk/send-emails-with-asp-net-core-with-mailkit/"
                           })
                 .Build();
 
